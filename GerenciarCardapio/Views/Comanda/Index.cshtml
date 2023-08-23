@@ -1,0 +1,64 @@
+﻿@model List<Comanda>
+@{
+    ViewData["Title"] = "Comandas";
+}
+
+@if(TempData["Sucesso"] != null){
+        <div class="alert alert-success" role="alert">
+  A comanda foi adicionada com sucesso!!
+</div>
+}
+
+@if(TempData["Erro"] != null){
+    <div class="alert alert-danger" role="alert">
+  Problema ao adicionar a comanda!
+</div>
+}
+
+<div class="text-center">
+    <h1 class="display-4">Comandas abertas</h1>
+</div>
+
+ <a class="btn btn-success " role="button" asp-controller="Comanda" asp-action="AbrirComanda">Abrir nova comanda</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Cód Comanda</th>
+      <th scope="col">Identificador cliente/mesa</th>
+      <th scope="col">Situação</th> 
+      <th scope="col">Valor total</th>
+      <th scope="col">Data aberta</th>
+      <th></th>
+    </tr>
+  </thead>
+    @if (Model != null && Model.Any())
+    {
+        @foreach(Comanda comanda in Model){
+        <tbody>
+            <tr>
+            <th scoped="row">@comanda.Id</th>
+            <td>@comanda.IdentificacaoCliente</td>
+            <td>@(comanda.Ativa?"Aberta":"Fechada")</td>
+            <td>@comanda.ValorTotal</td>
+            <td>@comanda.DataComandaAbriu</td>
+            <td>
+                 <div class="btn-group" role="group">
+                                <a role="button" class="table-button button-common-style view-button">Ver Pedidos</a>
+                                <a role="button" class="table-button button-common-style new-button">Novo Pedido</a>
+                                <a role="button" class="table-button button-common-style remove-button">Remover Pedido</a>
+                                <a role="button" class="table-button button-common-style close-button">Fechar Conta</a>
+                 </td>
+            </tr>
+        </tbody>
+        }
+    }
+    else
+    {   <tr>
+        <td colspan="5" style="text-align: center;">
+        <span style="color: red;">Nenhuma comanda foi aberta até o momento!</span>
+        </td>
+    </tr>
+    }
+
+</table>
+

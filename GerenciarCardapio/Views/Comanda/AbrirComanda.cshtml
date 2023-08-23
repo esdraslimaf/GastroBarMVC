@@ -1,0 +1,19 @@
+﻿@model Comanda
+
+@{
+    ViewData["Title"] = "Abrir comanda";
+}
+
+<div class="text-center">
+    <h1 class="display-6">Preencha o campo necessário para abrir a comanda:</h1>
+</div>
+<form asp-controller="Comanda" asp-action="AbrirComanda" method="post">
+  <div class="form-group">
+    <label for="identificacao">Nome do cliente ou número da mesa</label>
+    <input type="text" asp-for="IdentificacaoCliente" class="form-control" id="identificacao" placeholder="Identificador do cliente">
+    <span asp-validation-for="IdentificacaoCliente"></span>
+  </div>
+  <br/>
+  <button type="submit" class="btn btn-primary">Confirmar</button>
+</form>
+
