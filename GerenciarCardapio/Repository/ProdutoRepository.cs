@@ -1,6 +1,7 @@
 ﻿using GerenciarCardapio.Data;
 using GerenciarCardapio.Models;
 using GerenciarCardapio.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace GerenciarCardapio.Repository
 {
@@ -13,7 +14,7 @@ namespace GerenciarCardapio.Repository
         }
 
         public Produto AdicionarProduto(Produto produto)
-        {
+        {           
             _db.Produtos.Add(produto);
             _db.SaveChanges();
             return produto;
@@ -21,7 +22,7 @@ namespace GerenciarCardapio.Repository
 
         public ICollection<Produto> BuscarProdutos()
         {
-            return _db.Produtos.ToList();
+            return _db.Produtos.Include(c => c.Categoria).ToList();
         }
     }
 }

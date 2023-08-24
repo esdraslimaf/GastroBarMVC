@@ -126,8 +126,8 @@ namespace GerenciarCardapio.Migrations
                     b.Property<int>("CategoriaId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Estoque")
-                        .HasColumnType("int");
+                    b.Property<bool?>("Estoque")
+                        .HasColumnType("bit");
 
                     b.Property<string>("NomeProduto")
                         .IsRequired()
@@ -137,14 +137,12 @@ namespace GerenciarCardapio.Migrations
                     b.Property<decimal>("PrecoUnitario")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("ProdutoId")
+                    b.Property<int?>("QuantidadeEstoque")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoriaId");
-
-                    b.HasIndex("ProdutoId");
 
                     b.ToTable("Produtos");
                 });
@@ -158,7 +156,7 @@ namespace GerenciarCardapio.Migrations
                         .IsRequired();
 
                     b.HasOne("GerenciarCardapio.Models.Produto", "Produto")
-                        .WithMany()
+                        .WithMany("ComandaProdutos")
                         .HasForeignKey("ProdutoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -175,10 +173,6 @@ namespace GerenciarCardapio.Migrations
                         .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("GerenciarCardapio.Models.Produto", null)
-                        .WithMany("ComandaProdutos")
-                        .HasForeignKey("ProdutoId");
 
                     b.Navigation("Categoria");
                 });

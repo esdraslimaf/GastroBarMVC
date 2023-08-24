@@ -1,4 +1,4 @@
-﻿@model Produto
+﻿@model ProdutoOptionValueString
 
 @{
     ViewData["Title"] = "Adicionar produto";
@@ -23,8 +23,8 @@
  <div class="form-group">
     <label for="categoriaprod">Categoria do produto</label>
     <select asp-for="CategoriaId" class="form-control" id="categoriaprod">
-        <option value="">Selecione uma categoria</option>
-        <option value="1">Comida</option>  
+        <option value="" disabled selected>Selecione uma categoria</option>
+        <option value="1">Comida</option> 
         <option value="2">Cerveja</option>    
         <option value="3">Drink</option>    
         <option value="4">Cachaça</option>    

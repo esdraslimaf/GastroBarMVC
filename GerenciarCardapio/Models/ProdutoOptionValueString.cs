@@ -1,10 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
 namespace GerenciarCardapio.Models
 {
-    public class Produto
+    public class ProdutoOptionValueString
     {
-        public int Id { get; set; }
         [Required(ErrorMessage = "O nome do produto é obrigatório!")]
         [StringLength(40, ErrorMessage = "O nome do produto deve conter no máximo 40 caracteres.")]
         public string NomeProduto { get; set; }
@@ -14,9 +12,7 @@ namespace GerenciarCardapio.Models
         public decimal PrecoUnitario { get; set; }
         public bool? Estoque { get; set; } // Pode ter estoque ou não
         public int? QuantidadeEstoque { get; set; }
-        public int CategoriaId { get; set; } // Não ProdutoId
-        public virtual CategoriaProdutos Categoria { get; set; }
-        public virtual ICollection<ComandaProduto>? ComandaProdutos { get; set; }
-
+        [Required(ErrorMessage = "Informe a categoria do produto!")]
+        public string CategoriaId { get; set; } //
     }
 }

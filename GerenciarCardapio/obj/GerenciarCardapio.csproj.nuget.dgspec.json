@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\gerenciarcardapio\\GerenciarCardapio\\GerenciarCardapio\\GerenciarCardapio.csproj": {}
+    "C:\\Users\\Usuário\\Desktop\\Projeto\\GastroBarMVC2\\GastroBarMVC\\GerenciarCardapio\\GerenciarCardapio.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\gerenciarcardapio\\GerenciarCardapio\\GerenciarCardapio\\GerenciarCardapio.csproj": {
+    "C:\\Users\\Usuário\\Desktop\\Projeto\\GastroBarMVC2\\GastroBarMVC\\GerenciarCardapio\\GerenciarCardapio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\gerenciarcardapio\\GerenciarCardapio\\GerenciarCardapio\\GerenciarCardapio.csproj",
+        "projectUniqueName": "C:\\Users\\Usuário\\Desktop\\Projeto\\GastroBarMVC2\\GastroBarMVC\\GerenciarCardapio\\GerenciarCardapio.csproj",
         "projectName": "GerenciarCardapio",
-        "projectPath": "C:\\Projetos\\gerenciarcardapio\\GerenciarCardapio\\GerenciarCardapio\\GerenciarCardapio.csproj",
+        "projectPath": "C:\\Users\\Usuário\\Desktop\\Projeto\\GastroBarMVC2\\GastroBarMVC\\GerenciarCardapio\\GerenciarCardapio.csproj",
         "packagesPath": "C:\\Users\\Usuário\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\gerenciarcardapio\\GerenciarCardapio\\GerenciarCardapio\\obj\\",
+        "outputPath": "C:\\Users\\Usuário\\Desktop\\Projeto\\GastroBarMVC2\\GastroBarMVC\\GerenciarCardapio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

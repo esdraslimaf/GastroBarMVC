@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gPVe+HxFmGUoDWXiAImpWpzJRJ4Bx/F1jwT4TtnfjQdJtx/06d+In+1HvfBID74wf7nqB1Bq+S6jHn620xR6GA==",
+  "dgSpecHash": "6F40cbX6t2tAwnoQJ9uMkVx9EV21B+4iDQ8y/9DlG2YoadC+Vxl2Ck4CPW3UNZDoGD0+N8mY01rYlDrqf84C7A==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\gerenciarcardapio\\GerenciarCardapio\\GerenciarCardapio\\GerenciarCardapio.csproj",
+  "projectFilePath": "C:\\Users\\Usuário\\Desktop\\Projeto\\GastroBarMVC2\\GastroBarMVC\\GerenciarCardapio\\GerenciarCardapio.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuário\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Usuário\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

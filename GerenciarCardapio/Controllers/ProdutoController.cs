@@ -25,18 +25,26 @@ namespace GerenciarCardapio.Controllers
         }
 
         [HttpPost]
-        public IActionResult AdicionarProduto(Produto produto)
+        public IActionResult AdicionarProduto(ProdutoOptionValueString produtoOption)
         {
+            return RedirectToAction("Index");
             if (ModelState.IsValid)
-            {
-                _repo.AdicionarProduto(produto);
+           {
+                Produto p = new Produto();
+                int categoria = int.Parse(produtoOption.CategoriaId);
+                p.NomeProduto = produtoOption.NomeProduto;
+                p.PrecoUnitario = produtoOption.PrecoUnitario;
+                p.CategoriaId = categoria;
+
+                _repo.AdicionarProduto(p);
+
                 TempData["Sucesso"] = "Produto adicionado com sucesso!";
                 return RedirectToAction("Index");
-            }
-            else
-            {
-                return View(produto);
-            }
+           }
+          else
+         {               
+               return View(produtoOption);
+          }
             
         }
     }
