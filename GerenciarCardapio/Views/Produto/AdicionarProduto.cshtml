@@ -1,0 +1,38 @@
+﻿@model Produto
+
+@{
+    ViewData["Title"] = "Adicionar produto";
+}
+
+<div class="text-center">
+    <h1 class="display-6">Preencha os campos necessários para adicionar o produto:</h1>
+</div>
+<form asp-controller="Produto" asp-action="AdicionarProduto" method="post">
+  <div class="form-group">
+    <label for="nomeProduto">Nome do produto</label>
+    <input type="text" asp-for="NomeProduto" class="form-control" id="nomeProduto" placeholder="Nome do produto">
+    <span asp-validation-for="NomeProduto"></span>
+  </div>
+
+  <div class="form-group">
+    <label for="precoproduto">Preço unitário</label>
+    <input type="number" asp-for="PrecoUnitario" class="form-control" id="precoproduto" placeholder="Preço do produto" step="0.01">
+    <span asp-validation-for="PrecoUnitario"></span>
+</div>
+
+ <div class="form-group">
+    <label for="categoriaprod">Categoria do produto</label>
+    <select asp-for="CategoriaId" class="form-control" id="categoriaprod">
+        <option value="">Selecione uma categoria</option>
+        <option value="1">Comida</option>  
+        <option value="2">Cerveja</option>    
+        <option value="3">Drink</option>    
+        <option value="4">Cachaça</option>    
+        </select>
+    <span asp-validation-for="CategoriaId"></span>
+</div>
+
+  <br/>
+  <button type="submit" class="btn btn-primary">Confirmar</button>
+</form>
+

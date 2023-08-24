@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GerenciarCardapio.Migrations
 {
     [DbContext(typeof(ComandaContext))]
-    [Migration("20230823034919_Inicial")]
+    [Migration("20230824002819_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,46 @@ namespace GerenciarCardapio.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("GerenciarCardapio.Models.CategoriaProdutos", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("NomeCategoria")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CategoriaProdutos");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            NomeCategoria = "Comidas"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            NomeCategoria = "Cervejas"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            NomeCategoria = "Drinks"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            NomeCategoria = "Cachaças"
+                        });
+                });
 
             modelBuilder.Entity("GerenciarCardapio.Models.Comanda", b =>
                 {
@@ -43,7 +83,8 @@ namespace GerenciarCardapio.Migrations
 
                     b.Property<string>("IdentificacaoCliente")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
 
                     b.Property<decimal>("ValorTotal")
                         .HasColumnType("decimal(18,2)");
@@ -84,12 +125,16 @@ namespace GerenciarCardapio.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int>("CategoriaId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("Estoque")
                         .HasColumnType("int");
 
                     b.Property<string>("NomeProduto")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
 
                     b.Property<decimal>("PrecoUnitario")
                         .HasColumnType("decimal(18,2)");
@@ -98,6 +143,8 @@ namespace GerenciarCardapio.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoriaId");
 
                     b.HasIndex("ProdutoId");
 
@@ -125,9 +172,22 @@ namespace GerenciarCardapio.Migrations
 
             modelBuilder.Entity("GerenciarCardapio.Models.Produto", b =>
                 {
+                    b.HasOne("GerenciarCardapio.Models.CategoriaProdutos", "Categoria")
+                        .WithMany("Produtos")
+                        .HasForeignKey("CategoriaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("GerenciarCardapio.Models.Produto", null)
                         .WithMany("ComandaProdutos")
                         .HasForeignKey("ProdutoId");
+
+                    b.Navigation("Categoria");
+                });
+
+            modelBuilder.Entity("GerenciarCardapio.Models.CategoriaProdutos", b =>
+                {
+                    b.Navigation("Produtos");
                 });
 
             modelBuilder.Entity("GerenciarCardapio.Models.Comanda", b =>

@@ -13,6 +13,7 @@ namespace GerenciarCardapio.Data
         public DbSet<Comanda> Comandas { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<ComandaProduto> ProdutosComandas { get; set; }
+        public DbSet<CategoriaProdutos> CategoriaProdutos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,6 +25,11 @@ namespace GerenciarCardapio.Data
        .Property(p => p.PrecoUnitario)
        .HasColumnType("decimal(18, 2)");
 
+            modelBuilder.Entity<CategoriaProdutos>().HasData(
+            new CategoriaProdutos { Id = 1, NomeCategoria = "Comidas" },
+            new CategoriaProdutos { Id = 2, NomeCategoria = "Cervejas" },
+            new CategoriaProdutos { Id = 3, NomeCategoria = "Drinks" },
+            new CategoriaProdutos { Id = 4, NomeCategoria = "Cachaças" });
 
         }
 

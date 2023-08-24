@@ -1,0 +1,61 @@
+﻿@model List<Produto>
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+@if(TempData["Sucesso"] != null){
+        <div class="alert alert-success" role="alert">
+  O produto foi adicionada com sucesso!!
+</div>
+}
+
+@if(TempData["Erro"] != null){
+    <div class="alert alert-danger" role="alert">
+  Problema ao adicionar o produto!
+</div>
+}
+
+<div class="text-center">
+    <h1 class="display-4">Produtos disponíveis</h1>
+</div>
+
+ <a class="btn btn-success " role="button" asp-controller="Produto" asp-action="AdicionarProduto">Adicionar novo produto ao cardápio</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Código Produto</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Preço unitário</th> 
+     
+      <th scope="col">Categoria do produto</th>
+      <th></th>
+    </tr>
+  </thead>
+    @if (Model != null && Model.Any())
+    {
+        @foreach(Produto produto in Model){
+        <tbody>
+            <tr>
+            <th scoped="row">@produto.Id</th>
+            <td>@produto.NomeProduto</td>
+            <td>@produto.PrecoUnitario</td>
+         
+            <td>@produto.Categoria.NomeCategoria</td>
+            <td>
+                 <div class="btn-group" role="group">
+                                <a role="button" class="table-button button-common-style close-button">Editar produto</a>                             
+                                <a role="button" class="table-button button-common-style remove-button">Remover produto</a>                            
+                 </td>
+            </tr>
+        </tbody>
+        }
+    }
+    else
+    {   <tr>
+        <td colspan="5" style="text-align: center;">
+        <span style="color: red;">Nenhum produto foi adicionado até o momento!</span>
+        </td>
+    </tr>
+    }
+
+</table>
