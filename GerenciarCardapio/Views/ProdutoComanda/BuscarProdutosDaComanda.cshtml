@@ -1,0 +1,43 @@
+﻿@model List<ComandaProduto>
+@{
+    ViewData["Title"] = "Produtos da comanda:";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Pedidos realizados por este cliente/mesa:</h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Categoria</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Preço unitário</th> 
+            <th></th>
+        </tr>
+    </thead>
+    @if (Model != null && Model.Any())
+{
+    @foreach (ComandaProduto comandaProduto in Model)
+    {
+        <tr>
+            <td>@comandaProduto.Produto.Categoria.NomeCategoria</td>
+            <td>@comandaProduto.Produto.NomeProduto</td>
+            <td>@comandaProduto.Produto.PrecoUnitario R$</td>
+            <td>
+            </td>
+        </tr>
+    }
+}
+
+
+   
+    else
+    {
+        <tr>
+            <td colspan="5" style="text-align: center;">
+                <span style="color: red;">Nenhum produto foi adicionado até o momento!</span>
+            </td>
+        </tr>
+    }
+</table>

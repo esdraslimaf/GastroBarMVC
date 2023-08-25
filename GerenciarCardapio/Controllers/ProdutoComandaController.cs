@@ -13,10 +13,15 @@ namespace GerenciarCardapio.Controllers
         }
 
         [HttpPost]
-        public IActionResult AdicionarProdutoNaComanda(int idRecebido, int produtoId)
+        public IActionResult AdicionarProdutoNaComanda(int iddRecebido, int produtoId)
         {
-            _repo.AdicionarProdutoNaComanda(idRecebido, produtoId);
+            _repo.AdicionarProdutoNaComanda(iddRecebido, produtoId);
             return RedirectToAction("Index", "Comanda"); 
+        }
+
+        public IActionResult BuscarProdutosDaComanda(int id) // Isso seria bom um modal
+        {
+            return View(_repo.BuscarProdutosDaComanda(id));
         }
     }
 }

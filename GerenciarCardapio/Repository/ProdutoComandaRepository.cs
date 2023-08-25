@@ -1,6 +1,7 @@
 ﻿using GerenciarCardapio.Data;
 using GerenciarCardapio.Models;
 using GerenciarCardapio.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace GerenciarCardapio.Repository
 {
@@ -25,10 +26,10 @@ namespace GerenciarCardapio.Repository
             _db.SaveChanges();
         }
 
-        /*   public List<Produto> BuscarProdutosDaComanda(int id)
+        public List<ComandaProduto> BuscarProdutosDaComanda(int id)
            {
-
+            return _db.ProdutosComandas.Where(ProdutosComandas => ProdutosComandas.ComandaId == id).Include(ProdutosComandas => ProdutosComandas.Produto).ThenInclude(Produto=>Produto.Categoria).OrderBy(produto => produto.Produto.CategoriaId).ToList();
            }
-        */
+      
     }
 }

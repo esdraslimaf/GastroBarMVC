@@ -32,12 +32,11 @@
                 <td>@produto.NomeProduto</td>
                 <td>@produto.PrecoUnitario R$</td>
                 <td>
-
                     <form asp-controller="ProdutoComanda" asp-action="AdicionarProdutoNaComanda" method="post">
-    <input type="hidden" name="idRecebido" value="@idRecebido" />
-    <input type="hidden" name="produtoId" value="@produto.Id" />
-    <button type="submit" class="btn btn-success">Adicionar na comanda</button>
-</form>
+                    <input type="hidden" name="iddRecebido" value="@idRecebido" />
+                    <input type="hidden" name="produtoId" value="@produto.Id" />
+                    <button type="submit" class="btn btn-success">Adicionar na comanda</button>
+                    </form>
                 </td>
             </tr>
         }
