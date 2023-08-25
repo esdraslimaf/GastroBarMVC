@@ -1,6 +1,7 @@
 ﻿using GerenciarCardapio.Data;
 using GerenciarCardapio.Models;
 using GerenciarCardapio.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace GerenciarCardapio.Repository
 {
@@ -21,9 +22,14 @@ namespace GerenciarCardapio.Repository
 
         public ICollection<Comanda> BuscarComandasAbertas()
         {
-            return _db.Comandas.Where(c=>c.Ativa==true).ToList();
+            List<Comanda> lista = _db.Comandas.Include(p=>p.ComandaProdutos).ThenInclude(cp => cp.Produto).Where(c => c.Ativa == true).ToList();
+            foreach(Comanda c in lista)
+            {
+                c.AtualizaValorTotalComanda();
+            }
+            return lista;
         }
-
+  
 
     }
 }

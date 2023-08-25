@@ -13,6 +13,21 @@ namespace GerenciarCardapio.Models
         public bool Ativa { get; set; } 
         public decimal ValorTotal { get; set; }
         public virtual ICollection<ComandaProduto>? ComandaProdutos { get; set; }
-        
+
+
+        public void AtualizaValorTotalComanda()
+        {
+            if(ComandaProdutos!=null && ComandaProdutos.Any())
+            {
+                foreach(ComandaProduto c in ComandaProdutos)
+                {
+                    ValorTotal += c.Produto.PrecoUnitario;
+                }
+            }
+        }
+
     }
+  
 }
+
+
