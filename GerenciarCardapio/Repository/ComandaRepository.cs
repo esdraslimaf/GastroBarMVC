@@ -24,5 +24,6 @@ namespace GerenciarCardapio.Repository
             return _db.Comandas.Where(c=>c.Ativa==true).ToList();
         }
 
+
     }
 }

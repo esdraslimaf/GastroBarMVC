@@ -16,6 +16,8 @@ namespace GerenciarCardapio
             builder.Services.AddDbContext<ComandaContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Connection")));
             builder.Services.AddScoped<IComandaRepository, ComandaRepository>();
             builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
+            builder.Services.AddScoped<ICategoriaProdutosRepository, CategoriaProdutosRepository>();
+            builder.Services.AddScoped<IProdutoComandaRepository, ProdutoComandaRepository>();
 
             var app = builder.Build();
 

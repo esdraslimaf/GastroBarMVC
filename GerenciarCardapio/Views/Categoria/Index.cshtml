@@ -1,0 +1,56 @@
+﻿@model List<CategoriaProdutos>
+@{
+    ViewData["Title"] = "Produtos disponíveis:";
+    int idRecebido = Convert.ToInt32(ViewContext.RouteData.Values["id"]);
+}
+
+<div class="text-center">
+    <h1 class="display-4">Produtos disponíveis</h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Categoria:</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Preço unitário</th> 
+            <th></th>
+        </tr>
+    </thead>
+    @if (Model != null && Model.Any())
+    {
+ <tbody>
+    @foreach (CategoriaProdutos categoria in Model)
+    {
+        @foreach (Produto produto in categoria.Produtos)
+        {
+            <tr>
+                @if (produto == categoria.Produtos.First())
+                {
+                    <th rowspan="@categoria.Produtos.Count">@categoria.NomeCategoria</th>
+                }
+                <td>@produto.NomeProduto</td>
+                <td>@produto.PrecoUnitario R$</td>
+                <td>
+                    <form asp-controller="ProdutoComanda" asp-action="AdicionarProdutoNaComanda" method="post">
+    <input type="hidden" name="idRecebido" value="@idRecebido" />
+    <input type="hidden" name="produtoId" value="@produto.Id" />
+    <button type="submit" class="btn btn-success">Adicionar na comanda</button>
+</form>
+                </td>
+            </tr>
+        }
+    }
+</tbody>
+
+    }
+
+    else
+    {
+        <tr>
+            <td colspan="5" style="text-align: center;">
+                <span style="color: red;">Nenhum produto foi adicionado até o momento!</span>
+            </td>
+        </tr>
+    }
+</table>

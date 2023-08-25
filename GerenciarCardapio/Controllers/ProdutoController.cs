@@ -27,7 +27,6 @@ namespace GerenciarCardapio.Controllers
         [HttpPost]
         public IActionResult AdicionarProduto(ProdutoOptionValueString produtoOption)
         {
-            return RedirectToAction("Index");
             if (ModelState.IsValid)
            {
                 Produto p = new Produto();
