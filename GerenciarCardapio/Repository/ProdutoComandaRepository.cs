@@ -30,6 +30,21 @@ namespace GerenciarCardapio.Repository
            {
             return _db.ProdutosComandas.Where(ProdutosComandas => ProdutosComandas.ComandaId == id).Include(ProdutosComandas => ProdutosComandas.Produto).ThenInclude(Produto=>Produto.Categoria).OrderBy(produto => produto.Produto.CategoriaId).ToList();
            }
-      
+        
+
+        public void RemoverProdutoDaComanda(int id)
+        {
+            var produtoComanda = _db.ProdutosComandas.Find(id);
+            if (produtoComanda != null)
+            {
+                _db.ProdutosComandas.Remove(produtoComanda);
+                _db.SaveChanges(); 
+            }
+
+            else 
+            {
+                throw new Exception("O id do pedido está incorreto!");
+            }
+        }
     }
 }

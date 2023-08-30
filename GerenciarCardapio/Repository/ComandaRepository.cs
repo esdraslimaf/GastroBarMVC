@@ -29,7 +29,30 @@ namespace GerenciarCardapio.Repository
             }
             return lista;
         }
-  
+
+
+        public Comanda FecharComandaGerandoRelatorio(int idComanda) // Retornando a comanda 
+        {
+            decimal valorTotal = 0.0m;
+            var comanda = _db.Comandas.Include(c => c.ComandaProdutos).ThenInclude(cp => cp.Produto).FirstOrDefault(c => c.Id == idComanda);
+
+            if (comanda != null)
+            {
+                comanda.ComandaProdutos = comanda.ComandaProdutos.OrderBy(cp => cp.Produto.CategoriaId).ToList();
+
+                foreach (ComandaProduto pedidos in comanda.ComandaProdutos)
+                {
+                    valorTotal += pedidos.Produto.PrecoUnitario;
+                }
+
+                comanda.Ativa = false;
+                comanda.ValorTotal = valorTotal;
+                comanda.DataComandaFechada = DateTime.Now;
+                _db.Comandas.Update(comanda);
+                _db.SaveChanges();
+            }
+            return comanda;    
+        }
 
     }
 }

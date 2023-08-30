@@ -40,7 +40,14 @@ namespace GerenciarCardapio.Controllers
             else
             {
                 return View(comanda);
-            }
+            }        
         }
+
+        [HttpPost]
+        public IActionResult Relatorio(int id)
+        {
+            return View(_repo.FecharComandaGerandoRelatorio(id));
+        }
+
     }
 }

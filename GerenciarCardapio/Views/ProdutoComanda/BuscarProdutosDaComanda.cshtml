@@ -24,8 +24,10 @@
             <td>@comandaProduto.Produto.Categoria.NomeCategoria</td>
             <td>@comandaProduto.Produto.NomeProduto</td>
             <td>@comandaProduto.Produto.PrecoUnitario R$</td>
-            <td>
-            </td>
+            <td><form asp-controller="ProdutoComanda" asp-action="RemoverProdutoDaComanda" asp-route-id="@comandaProduto.Id" asp-route-idComanda="@comandaProduto.ComandaId" method="post">
+                    <button type="submit" class="btn btn-danger">Remover pedido</button>
+                    </form>
+                    </td>
         </tr>
     }
 }

@@ -6,5 +6,7 @@ namespace GerenciarCardapio.Repository.Interfaces
     {
         Comanda AbrirComanda(Comanda comanda);
         ICollection<Comanda> BuscarComandasAbertas();
+        Comanda FecharComandaGerandoRelatorio(int id);
+
     }
 }

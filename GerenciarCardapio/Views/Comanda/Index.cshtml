@@ -45,8 +45,9 @@
                  <div class="btn-group" role="group">
                                 <a role="button" class="table-button button-common-style view-button" asp-action="BuscarProdutosDaComanda" asp-controller="ProdutoComanda" asp-route-id="@comanda.Id">Ver Pedidos</a>
                                 <a role="button" class="table-button button-common-style new-button" asp-controller="Categoria" asp-action="Index" asp-route-id="@comanda.Id">Novo Pedido</a>
-                                <a role="button" class="table-button button-common-style remove-button">Remover Pedido</a>
-                                <a role="button" class="table-button button-common-style close-button">Fechar Conta</a>
+                                <form asp-controller="Comanda" asp-action="Relatorio" asp-route-id="@comanda.Id" method="post">
+                    <button type="submit" class="btn btn-danger">Fechar Conta</button>
+                    </form>
                  </td>
             </tr>
         </tbody>
