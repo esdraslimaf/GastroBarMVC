@@ -26,10 +26,13 @@ namespace GerenciarCardapio.Data
        .HasColumnType("decimal(18, 2)");
 
             modelBuilder.Entity<CategoriaProdutos>().HasData(
-            new CategoriaProdutos { Id = 1, NomeCategoria = "Comidas" },
-            new CategoriaProdutos { Id = 2, NomeCategoria = "Cervejas" },
-            new CategoriaProdutos { Id = 3, NomeCategoria = "Drinks" },
-            new CategoriaProdutos { Id = 4, NomeCategoria = "Cachaças" });
+               new CategoriaProdutos { Id = 1, NomeCategoria = "Comidas" },
+               new CategoriaProdutos { Id = 2, NomeCategoria = "Cervejas" },
+               new CategoriaProdutos { Id = 3, NomeCategoria = "Cachaças" },
+               new CategoriaProdutos { Id = 4, NomeCategoria = "Drinks" },
+               new CategoriaProdutos { Id = 5, NomeCategoria = "Vinhos" },
+               new CategoriaProdutos { Id = 6, NomeCategoria = "Bebidas não alcoólicas" }
+           );
 
         }
 

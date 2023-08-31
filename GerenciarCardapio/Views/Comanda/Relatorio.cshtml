@@ -4,22 +4,22 @@
     ViewData["Title"] = "Relatório";
 }
 
-<div class="container mt-5">
-    <h1 class="display-4">Relatório de Comanda</h1>
+<div class="report-container">
+    <h1 class="report-title">Relatório de Comanda</h1>
 
-    <div class="mt-4">
+    <div class="report-data">
         <h2>Dados da Comanda:</h2>
-        <p><strong>Código da comanda: @Model.Id
+        <p><strong>Código da comanda:</strong> @Model.Id</p>
         <p><strong>Identificação do Cliente/Mesa:</strong> @Model.IdentificacaoCliente</p>
         <p><strong>Data de Abertura:</strong> @Model.DataComandaAbriu.ToString("dd/MM/yyyy HH:mm:ss")</p>
         @if (Model.DataComandaFechada.HasValue)
         {
             <p><strong>Data de Fechamento:</strong> @Model.DataComandaFechada.Value.ToString("dd/MM/yyyy HH:mm:ss")</p>
         }
-        <p><strong>Valor Total a ser pago:</strong> R$ @Model.ValorTotal.ToString("0.00")</p>
+        <p><strong>Valor Total a ser pago:</strong> R$ <span class="report-value">@Model.ValorTotal.ToString("0.00")</span></p>
     </div>
 
-    <div class="mt-4">
+    <div class="report-data">
         <h2>Pedidos Realizados: @Model.ComandaProdutos.Count() </h2>
         @if (Model.ComandaProdutos != null && Model.ComandaProdutos.Any())
         {
@@ -35,7 +35,7 @@
                     {
                         <tr>
                             <td>@produtoComanda.Produto.NomeProduto</td>
-                            <td>R$ @produtoComanda.Produto.PrecoUnitario.ToString("0.00")</td>
+                            <td>R$ <span class="report-value">@produtoComanda.Produto.PrecoUnitario.ToString("0.00")</span></td>
                         </tr>
                     }
                 </tbody>
