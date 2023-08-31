@@ -20,6 +20,11 @@ namespace GerenciarCardapio.Repository
             return comanda;
         }
 
+        public Comanda BuscarComandaPorId(int id)
+        {
+            return _db.Comandas.Find(id);
+        }
+
         public ICollection<Comanda> BuscarComandasAbertas()
         {
             List<Comanda> lista = _db.Comandas.Include(p=>p.ComandaProdutos).ThenInclude(cp => cp.Produto).Where(c => c.Ativa == true).ToList();

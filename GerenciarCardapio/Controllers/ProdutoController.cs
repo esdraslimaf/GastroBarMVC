@@ -1,6 +1,7 @@
 ﻿using GerenciarCardapio.Models;
 using GerenciarCardapio.Repository.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Globalization;
 
 namespace GerenciarCardapio.Controllers
 {
@@ -18,7 +19,7 @@ namespace GerenciarCardapio.Controllers
             return View(_repo.BuscarProdutos());
         }
 
-    
+
         public IActionResult AdicionarProduto()
         {
             return View();
@@ -28,7 +29,7 @@ namespace GerenciarCardapio.Controllers
         public IActionResult AdicionarProduto(ProdutoOptionValueString produtoOption)
         {
             if (ModelState.IsValid)
-           {
+            {
                 Produto p = new Produto();
                 int categoria = int.Parse(produtoOption.CategoriaId);
                 p.NomeProduto = produtoOption.NomeProduto;
@@ -39,12 +40,47 @@ namespace GerenciarCardapio.Controllers
 
                 TempData["Sucesso"] = "Produto adicionado com sucesso!";
                 return RedirectToAction("Index");
-           }
-          else
-         {               
-               return View(produtoOption);
-          }
-            
+            }
+            else
+            {
+                return View(produtoOption);
+            }        
         }
+
+        
+        public IActionResult EditarProduto(int id)
+        {
+            try
+            {
+                Produto produtoDb = _repo.BuscarProdutoPorId(id);
+                ProdutoOptionValueString prodString = new ProdutoOptionValueString();
+                prodString.NomeProduto = produtoDb.NomeProduto;
+                prodString.PrecoUnitario = produtoDb.PrecoUnitario;
+                prodString.CategoriaId = produtoDb.CategoriaId.ToString();
+                prodString.IdProduto = produtoDb.Id;               
+                return View(prodString);
+            }
+            catch (Exception erro)
+            {
+                TempData["Erro"] = $"Ops! Algum erro ocorreu. Erro: {erro.Message}";
+                return RedirectToAction("Index");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult EditarProduto(ProdutoOptionValueString prodString)
+        {
+            _repo.EditarProduto(prodString);
+            return RedirectToAction("Index");
+        }
+
+    
+        public IActionResult RemoverProduto(int id)
+        {
+            _repo.RemoverProduto(id);
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

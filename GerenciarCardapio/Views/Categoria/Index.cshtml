@@ -8,6 +8,8 @@
     <h1 class="display-4">Produtos disponíveis</h1>
 </div>
 
+ <a class="table-button button-common-style back-button" role="button" asp-controller="Comanda" asp-action="Index">Voltar</a>
+
 <table class="table">
     <thead>
         <tr>
@@ -35,7 +37,7 @@
                     <form asp-controller="ProdutoComanda" asp-action="AdicionarProdutoNaComanda" method="post">
                     <input type="hidden" name="iddRecebido" value="@idRecebido" />
                     <input type="hidden" name="produtoId" value="@produto.Id" />
-                    <button type="submit" class="btn btn-success">Adicionar na comanda</button>
+                    <button type="submit" class="table-button button-common-style new-button">Realizar pedido</button>
                     </form>
                 </td>
             </tr>

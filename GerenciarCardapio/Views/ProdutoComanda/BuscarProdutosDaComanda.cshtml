@@ -3,9 +3,11 @@
     ViewData["Title"] = "Produtos da comanda:";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Pedidos realizados por este cliente/mesa:</h1>
+   <div class="text-center">
+    <h1 class="display-4">Pedidos do(a) cliente/mesa: @TempData["NomeCliente"]</h1>
 </div>
+
+<a asp-action="Index" asp-controller="Comanda" class="table-button button-common-style back-button">Voltar</a>
 
 <table class="table">
     <thead>
@@ -25,7 +27,7 @@
             <td>@comandaProduto.Produto.NomeProduto</td>
             <td>@comandaProduto.Produto.PrecoUnitario R$</td>
             <td><form asp-controller="ProdutoComanda" asp-action="RemoverProdutoDaComanda" asp-route-id="@comandaProduto.Id" asp-route-idComanda="@comandaProduto.ComandaId" method="post">
-                    <button type="submit" class="btn btn-danger">Remover pedido</button>
+                    <button type="submit" class="table-button button-common-style remove-button">Remover pedido</button>
                     </form>
                     </td>
         </tr>

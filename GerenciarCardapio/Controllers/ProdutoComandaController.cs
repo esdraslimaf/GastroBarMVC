@@ -1,4 +1,5 @@
-﻿using GerenciarCardapio.Repository.Interfaces;
+﻿using GerenciarCardapio.Models;
+using GerenciarCardapio.Repository.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GerenciarCardapio.Controllers
@@ -6,10 +7,11 @@ namespace GerenciarCardapio.Controllers
     public class ProdutoComandaController : Controller
     {
         private readonly IProdutoComandaRepository _repo;
-
-        public ProdutoComandaController(IProdutoComandaRepository repo)
+        private readonly IComandaRepository _repoComanda;
+        public ProdutoComandaController(IProdutoComandaRepository repo, IComandaRepository repoComanda)
         {
             _repo = repo;
+            _repoComanda = repoComanda;
         }
 
         [HttpPost]
@@ -22,7 +24,9 @@ namespace GerenciarCardapio.Controllers
         
         public IActionResult BuscarProdutosDaComanda(int id) // Isso seria bom um modal
         {
-            return View(_repo.BuscarProdutosDaComanda(id));
+            List<ComandaProduto> ListaPedidos = _repo.BuscarProdutosDaComanda(id);
+            TempData["NomeCliente"] = _repoComanda.BuscarComandaPorId(id).IdentificacaoCliente;
+            return View(ListaPedidos);
         }
 
         public IActionResult RemoverProdutoDaComanda(int id, int idComanda)

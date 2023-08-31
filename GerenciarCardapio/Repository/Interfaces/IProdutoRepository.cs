@@ -6,5 +6,8 @@ namespace GerenciarCardapio.Repository.Interfaces
     {
         Produto AdicionarProduto(Produto produto);
         ICollection<Produto> BuscarProdutos();
+        Produto BuscarProdutoPorId(int id);
+        void EditarProduto(ProdutoOptionValueString produto);
+        void RemoverProduto(int id);
     }
 }

@@ -1,16 +1,14 @@
 ﻿@model ProdutoOptionValueString
 
 @{
-    ViewData["Title"] = "Adicionar produto";
+    ViewData["Title"] = "Editar produto";
 }
 
 <div class="text-center">
-    <h1 class="display-6">Preencha os campos necessários para adicionar o produto:</h1>
+    <h1 class="display-6">Modifique os campos que deseja alterar:</h1>
 </div>
-
-
-<form asp-controller="Produto" asp-action="AdicionarProduto" method="post">
-    <input type="hidden" asp-for="IdProduto" value="0" />
+<form asp-controller="Produto" asp-action="EditarProduto" method="post">
+    <input type="hidden" asp-for="IdProduto" />
   <div class="form-group">
     <label for="nomeProduto">Nome do produto</label>
     <input type="text" asp-for="NomeProduto" class="form-control" id="nomeProduto" placeholder="Nome do produto">
@@ -36,13 +34,7 @@
 </div>
 
   <br/>
-  <button type="submit" class="table-button button-common-style view-button">Confirmar</button>
-  <a asp-action="Index" asp-controller="Produto" class="table-button button-common-style back-button">Voltar</a>
+  <button type="submit" class="table-button button-common-style view-button">Confirmar edição</button>
+  <a role="button" class="table-button button-common-style back-button" asp-action="Index" asp-controller="Produto">Voltar</a>
 </form>
-
-
-
-
-
-
 

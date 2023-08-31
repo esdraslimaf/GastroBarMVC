@@ -3,6 +3,7 @@ namespace GerenciarCardapio.Models
 {
     public class ProdutoOptionValueString
     {
+        public int IdProduto { get; set; }
         [Required(ErrorMessage = "O nome do produto é obrigatório!")]
         [StringLength(40, ErrorMessage = "O nome do produto deve conter no máximo 40 caracteres.")]
         public string NomeProduto { get; set; }

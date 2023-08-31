@@ -66,6 +66,12 @@ body {
     color: #fff;
 }
 
+/* Estilos para o botão "Voltar" */
+.back-button {
+    background-color: #9b59b6; 
+    color: #fff;
+}
+
 /* Estilos para os botões em hover */
 .table-button:hover {
     background-color: #ccc;
