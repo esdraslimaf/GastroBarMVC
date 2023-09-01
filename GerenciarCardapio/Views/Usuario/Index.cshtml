@@ -1,0 +1,63 @@
+﻿@model List<Usuario>
+@{
+    ViewData["Title"] = "Usuarios";
+}
+
+@if(TempData["Sucesso"] != null){
+        <div class="alert alert-success" role="alert">
+  O usuário foi adicionada com sucesso!!
+</div>
+}
+
+@if(TempData["Erro"] != null){
+    <div class="alert alert-danger" role="alert">
+  Problema ao adicionar o usuário!
+</div>
+}
+
+<div class="text-center">
+    <h1 class="display-4">Usuários cadastrados:</h1>
+</div>
+
+ <a class="table-button button-common-style new-button" role="button" asp-controller="Usuario" asp-action="Criar">Adicionar usuário</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Código do usuário</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Login</th>      
+      <th scope="col">Email</th>
+      <th scope="col">Tipo de Perfil</th>
+      <th scope="col">Data de Cadastro</th>
+      <th></th>
+    </tr>
+  </thead>
+    @if (Model != null && Model.Any())
+    {
+        @foreach(Usuario usuario in Model){
+        <tbody>
+            <tr>
+            <th scoped="row">@usuario.Id</th>
+            <td>@usuario.Nome</td>
+            <td>@usuario.Login</td>        
+            <td>@usuario.Email</td>
+            <td>@(usuario.Perfil==GerenciarCardapio.Enums.PerfilEnum.Admin?"Admistrador":"Funcionário")</td>
+            <td>@usuario.DataCadastro</td>
+            <td>
+                 <div class="btn-group" role="group">
+                                <a role="button" class="table-button button-common-style close-button" asp-action="EditarUsuario" asp-controller="Usuario" asp-route-id="@usuario.Id">Editar usuário</a>                             
+                               <a role="button" class="table-button button-common-style remove-button" asp-action="RemoverUsuario" asp-controller="Usuario" asp-route-id="@usuario.Id">Remover usuário</a>                               
+                 </td>
+            </tr>
+        </tbody>
+        }
+    }
+    else
+    {   <tr>
+        <td colspan="6" style="text-align: center;">
+        <span style="color: red;">Nenhum usuário encontrado!</span>
+        </td>
+    </tr>
+    }
+
+</table>

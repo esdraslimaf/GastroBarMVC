@@ -18,6 +18,8 @@ namespace GerenciarCardapio
             builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
             builder.Services.AddScoped<ICategoriaProdutosRepository, CategoriaProdutosRepository>();
             builder.Services.AddScoped<IProdutoComandaRepository, ProdutoComandaRepository>();
+            builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+
 
             var app = builder.Build();
 

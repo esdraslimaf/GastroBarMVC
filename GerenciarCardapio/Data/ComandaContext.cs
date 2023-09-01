@@ -14,6 +14,7 @@ namespace GerenciarCardapio.Data
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<ComandaProduto> ProdutosComandas { get; set; }
         public DbSet<CategoriaProdutos> CategoriaProdutos { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,7 +32,7 @@ namespace GerenciarCardapio.Data
                new CategoriaProdutos { Id = 3, NomeCategoria = "Cachaças" },
                new CategoriaProdutos { Id = 4, NomeCategoria = "Drinks" },
                new CategoriaProdutos { Id = 5, NomeCategoria = "Vinhos" },
-               new CategoriaProdutos { Id = 6, NomeCategoria = "Bebidas não alcoólicas" }
+               new CategoriaProdutos { Id = 6, NomeCategoria = "Bebidas S/Álcool" }
            );
 
         }

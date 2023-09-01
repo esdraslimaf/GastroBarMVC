@@ -1,0 +1,58 @@
+﻿@using GerenciarCardapio.Enums
+@model Usuario
+
+@{
+    ViewData["Title"] = "Adicionar usuário";
+}
+
+<div class="text-center">
+    <h1 class="display-6">Preencha os campos necessários para adicionar o usuário:</h1>
+</div>
+
+
+<form asp-controller="Usuario" asp-action="Criar" method="post">
+  <div class="form-group">
+    <label for="nomeUsuario">Nome do usuário</label>
+    <input type="text" asp-for="Nome" class="form-control" id="nomeUsuario" placeholder="Nome do usuario">
+    <span asp-validation-for="Nome"></span>
+  </div>
+
+  <div class="form-group">
+    <label for="UsuarioLogin">Login</label>
+    <input type="text" asp-for="Login" class="form-control" id="UsuarioLogin" placeholder="Login do usuário">
+    <span asp-validation-for="Login"></span>
+</div>
+
+ <div class="form-group">
+    <label for="UsuarioEmail">Email</label>
+    <input type="email" asp-for="Email" class="form-control" id="UsuarioEmail" placeholder="Email do usuário">
+    <span asp-validation-for="Email"></span>
+</div>
+
+ <div class="form-group">
+    <label for="tipousuario">Tipo do usuário</label>
+    <select asp-for="Perfil" class="form-control" id="tipousuario">
+        <option value="" disabled selected>Selecione um tipo de perfil</option>
+         <option value="@PerfilEnum.Admin">Administrador</option>
+         <option value="@PerfilEnum.Funcionario">Funcionário</option>
+        </select>
+    <span asp-validation-for="Perfil"></span>
+</div>
+
+ <div class="form-group">
+    <label for="senhaUsuario">Senha do usuário</label>
+    <input type="password" asp-for="Senha" class="form-control" id="senhaUsuario" placeholder="Senha do usuário">
+    <span asp-validation-for="Senha"></span>
+</div>
+
+  <br/>
+  <button type="submit" class="table-button button-common-style view-button">Confirmar</button>
+  <a asp-action="Index" asp-controller="Produto" class="table-button button-common-style back-button">Voltar</a>
+</form>
+
+
+
+
+
+
+
