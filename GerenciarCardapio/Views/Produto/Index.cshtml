@@ -23,10 +23,9 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Código Produto</th>
+      <th scope="col">Categoria</th>
       <th scope="col">Nome</th>
-      <th scope="col">Preço unitário</th>      
-      <th scope="col">Categoria do produto</th>
+      <th scope="col">Preço unitário</th>          
       <th></th>
     </tr>
   </thead>
@@ -35,10 +34,10 @@
         @foreach(Produto produto in Model){
         <tbody>
             <tr>
-            <th scoped="row">@produto.Id</th>
+            <td>@produto.Categoria.NomeCategoria</td>
             <td>@produto.NomeProduto</td>
             <td>@produto.PrecoUnitario</td>        
-            <td>@produto.Categoria.NomeCategoria</td>
+            
             <td>
                  <div class="btn-group" role="group">
                                 <a role="button" class="table-button button-common-style close-button" asp-action="EditarProduto" asp-controller="Produto" asp-route-id="@produto.Id">Editar produto</a>                             
@@ -50,7 +49,7 @@
     }
     else
     {   <tr>
-        <td colspan="5" style="text-align: center;">
+        <td colspan="4" style="text-align: center;">
         <span style="color: red;">Nenhum produto foi adicionado até o momento!</span>
         </td>
     </tr>

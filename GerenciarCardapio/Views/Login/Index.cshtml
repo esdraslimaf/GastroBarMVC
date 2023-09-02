@@ -1,0 +1,52 @@
+﻿@model List<Produto>
+
+@{
+    ViewData["Title"] = "Cardápio";
+    Layout = "_LayoutTelaInicial";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Cardápio</h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Categoria</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Preço</th>
+        </tr>
+    </thead>
+    @if (Model != null && Model.Any())
+    {
+        string currentCategory = null;
+
+        foreach (Produto produto in Model)
+        {
+            if (produto.Categoria.NomeCategoria != currentCategory)
+            {
+                currentCategory = produto.Categoria.NomeCategoria;
+                <tr>
+                    <td class="bold-category" rowspan="@Model.Count(p => p.Categoria.NomeCategoria == currentCategory)">@currentCategory</td>
+                    <td>@produto.NomeProduto</td>
+                    <td>@produto.PrecoUnitario R$</td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td>@produto.NomeProduto</td>
+                    <td>@produto.PrecoUnitario R$</td>
+                </tr>
+            }
+        }
+    }
+    else
+    {
+        <tr>
+            <td colspan="3" style="text-align: center;">
+                <span style="color: red;">Cardápio sem produtos para serem mostrados!</span>
+            </td>
+        </tr>
+    }
+</table>

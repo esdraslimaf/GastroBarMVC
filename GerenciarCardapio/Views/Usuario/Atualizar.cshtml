@@ -2,15 +2,16 @@
 @model Usuario
 
 @{
-    ViewData["Title"] = "Adicionar usuário";
+    ViewData["Title"] = "Atualizar usuário";
 }
 
 <div class="text-center">
-    <h1 class="display-6">Preencha os campos necessários para adicionar o usuário:</h1>
+    <h1 class="display-6">Preencha os campos que deseja atualizar:</h1>
 </div>
 
 
-<form asp-controller="Usuario" asp-action="Criar" method="post">
+<form asp-controller="Usuario" asp-action="Atualizar" method="post">
+    <input type="hidden" asp-for="Id"/>
   <div class="form-group">
     <label for="nomeUsuario">Nome do usuário</label>
     <input type="text" asp-for="Nome" class="form-control" id="nomeUsuario" placeholder="Nome do usuario">
@@ -49,10 +50,3 @@
   <button type="submit" class="table-button button-common-style view-button">Confirmar</button>
   <a asp-action="Index" asp-controller="Usuario" class="table-button button-common-style back-button">Voltar</a>
 </form>
-
-
-
-
-
-
-

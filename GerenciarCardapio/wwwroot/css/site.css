@@ -115,3 +115,9 @@ body {
 .report-value {
     font-weight: bold;
 }
+
+
+/* Estilo para categoria do cardápio tela inicial */
+.bold-category {
+    font-weight: bold;
+}

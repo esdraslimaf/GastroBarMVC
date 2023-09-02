@@ -39,6 +39,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Usuário/Desktop/Projeto/GastroBarMVC3/GastroBarMVC/GerenciarCardapio/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuário/Desktop/Projeto/GastroBarMVC3/GastroBarMVC/GerenciarCardapio/Views/Login/IndexLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXhMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Usuário/Desktop/Projeto/GastroBarMVC3/GastroBarMVC/GerenciarCardapio/Views/ProdutoComanda/BuscarProdutosDaComanda.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b0NvbWFuZGFcQnVzY2FyUHJvZHV0b3NEYUNvbWFuZGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -63,6 +71,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Usuário/Desktop/Projeto/GastroBarMVC3/GastroBarMVC/GerenciarCardapio/Views/Usuario/Atualizar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xBdHVhbGl6YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Usuário/Desktop/Projeto/GastroBarMVC3/GastroBarMVC/GerenciarCardapio/Views/Usuario/Criar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xDcmlhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -82,3 +94,7 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/Usuário/Desktop/Projeto/GastroBarMVC3/GastroBarMVC/GerenciarCardapio/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-w6s2lmyqb6
+
+[C:/Users/Usuário/Desktop/Projeto/GastroBarMVC3/GastroBarMVC/GerenciarCardapio/Views/Shared/_LayoutTelaInicial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRUZWxhSW5pY2lhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-0xrqeac0y4

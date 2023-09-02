@@ -23,7 +23,15 @@ namespace GerenciarCardapio.Repository
 
         public Usuario Atualizar(Usuario usuario)
         {
-            throw new NotImplementedException();
+           Usuario usuarioDb = BuscarPorId(usuario.Id);
+            usuarioDb.Login = usuario.Login;
+            usuarioDb.Perfil = usuario.Perfil;
+            usuarioDb.Senha = usuario.Senha;
+            usuarioDb.Email = usuario.Email;
+            usuarioDb.Nome = usuario.Nome;
+            _db.Update(usuarioDb);
+            _db.SaveChanges();
+            return usuario;
         }
 
         public Usuario BuscarPorId(int id)
@@ -45,10 +53,9 @@ namespace GerenciarCardapio.Repository
         }
 
         public void Remover(int id)
-        {
+        {     
             _db.Remove(BuscarPorId(id));
-            _db.SaveChanges();
-     
+            _db.SaveChanges();   
         }
     }
 }

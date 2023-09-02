@@ -45,5 +45,58 @@ namespace GerenciarCardapio.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+        public IActionResult Remover(int id)
+        {
+            try
+            {
+                _repoUsuario.Remover(id);
+                TempData["Sucesso"] = "Usuário foi removido com sucesso!";
+                return RedirectToAction("Index");
+
+            }
+            catch(Exception erro)
+            {
+                TempData["Erro"] = $"Um erro ocorreu! Detalhes:{erro.Message}";
+                return RedirectToAction("Index");
+            }
+        }
+
+        public IActionResult Atualizar(int id)
+        {
+            try
+            {
+                return View(_repoUsuario.BuscarPorId(id));
+            }
+            catch(Exception erro)
+            {
+                TempData["Erro"] = $"Um erro ocorreu! Detalhes:{erro.Message}";
+                return RedirectToAction("Index");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Atualizar(Usuario usuario)
+        {
+            try { 
+            if (ModelState.IsValid)
+            {
+                _repoUsuario.Atualizar(usuario);
+                TempData["Sucesso"] = "Usuário foi editado com sucesso!";
+                return RedirectToAction("Index");
+
+            }
+            else
+            { 
+                return View(usuario);
+            }
+            }
+            catch(Exception erro)
+            {
+                TempData["Erro"] = $"Erro ao tentar editar o usuário! Detalhe:{erro.Message}";
+                return RedirectToAction("Index");
+            }
+        }
+
     }
 }

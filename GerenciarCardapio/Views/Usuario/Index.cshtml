@@ -5,13 +5,13 @@
 
 @if(TempData["Sucesso"] != null){
         <div class="alert alert-success" role="alert">
-  O usuário foi adicionada com sucesso!!
+  @TempData["Sucesso"]
 </div>
 }
 
 @if(TempData["Erro"] != null){
     <div class="alert alert-danger" role="alert">
-  Problema ao adicionar o usuário!
+  @TempData["Erro"]
 </div>
 }
 
@@ -45,8 +45,8 @@
             <td>@usuario.DataCadastro</td>
             <td>
                  <div class="btn-group" role="group">
-                                <a role="button" class="table-button button-common-style close-button" asp-action="EditarUsuario" asp-controller="Usuario" asp-route-id="@usuario.Id">Editar usuário</a>                             
-                               <a role="button" class="table-button button-common-style remove-button" asp-action="RemoverUsuario" asp-controller="Usuario" asp-route-id="@usuario.Id">Remover usuário</a>                               
+                                <a role="button" class="table-button button-common-style close-button" asp-action="Atualizar" asp-controller="Usuario" asp-route-id="@usuario.Id">Editar usuário</a>                             
+                               <a role="button" class="table-button button-common-style remove-button" asp-action="Remover" asp-controller="Usuario" asp-route-id="@usuario.Id">Remover usuário</a>                               
                  </td>
             </tr>
         </tbody>

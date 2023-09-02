@@ -1,0 +1,21 @@
+﻿@model UsuarioLogin
+@{
+    ViewData["Title"] = "Cardápio";
+    Layout = "_LayoutTelaInicial";
+}
+
+<p>Tela de login! - Ainda não terminada!</p>
+
+<form asp-controller="Login" asp-action="Entrar" method="post">
+  <div class="mb-3">
+    <label for="Login" class="form-label">Login</label>
+    <input type="text" asp-for="Login" class="form-control" id="Login" placeholder="Login">
+    <span asp-validation-for="Login"></span>
+  </div>
+  <div class="mb-3">
+    <label for="Senha" class="form-label">Senha</label>
+    <input type="password" asp-for="Senha" class="form-control" id="Senha" placeholder="Senha">
+    <span style="color: red;" asp-validation-for="Senha"></span>
+</div>
+  <button type="submit" class="table-button button-common-style new-button">Confirmar</button>
+</form>
