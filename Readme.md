@@ -1,6 +1,6 @@
 # Gerenciador de Bares e Restaurantes - README
 
-Bem-vindo ao Gerenciador de Bares e Restaurantes, uma aplicação em desenvolvimento para administrar e gerenciar estabelecimentos de alimentos e bebidas. Com essa ferramenta, você poderá gerenciar o cardápio, acompanhar as comandas dos clientes e muito mais.
+Bem-vindo ao Gerenciador de Bares e Restaurantes, uma aplicação totalmente autoral e em desenvolvimento para administrar e gerenciar estabelecimentos de alimentos e bebidas. Com essa ferramenta, você poderá gerenciar o cardápio, acompanhar as comandas dos clientes e muito mais.
 
 ## Funcionalidades Atuais
 ### Autenticação e Controle de Acesso:
