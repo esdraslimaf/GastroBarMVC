@@ -5,13 +5,13 @@
 
 @if(TempData["Sucesso"] != null){
         <div class="alert alert-success" role="alert">
-  O produto foi adicionada com sucesso!!
+  @TempData["Sucesso"]
 </div>
 }
 
 @if(TempData["Erro"] != null){
     <div class="alert alert-danger" role="alert">
-  Problema ao adicionar o produto!
+  @TempData["Erro"]
 </div>
 }
 
