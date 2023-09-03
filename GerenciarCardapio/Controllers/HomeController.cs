@@ -1,9 +1,11 @@
-﻿using GerenciarCardapio.Models;
+﻿using GerenciarCardapio.Filters;
+using GerenciarCardapio.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace GerenciarCardapio.Controllers
 {
+    [FiltroPaginaUsuarioLogado]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

@@ -1,9 +1,11 @@
-﻿using GerenciarCardapio.Models;
+﻿using GerenciarCardapio.Filters;
+using GerenciarCardapio.Models;
 using GerenciarCardapio.Repository.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GerenciarCardapio.Controllers
 {
+    [FiltroPaginaUsuarioLogado]
     public class ProdutoComandaController : Controller
     {
         private readonly IProdutoComandaRepository _repo;

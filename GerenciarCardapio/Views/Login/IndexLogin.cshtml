@@ -6,11 +6,17 @@
 
 <p>Tela de login! - Ainda não terminada!</p>
 
+@if(TempData["Erro"] != null){
+    <div class="alert alert-danger" role="alert">
+  @TempData["Erro"]
+</div>
+}
+
 <form asp-controller="Login" asp-action="Entrar" method="post">
   <div class="mb-3">
     <label for="Login" class="form-label">Login</label>
     <input type="text" asp-for="Login" class="form-control" id="Login" placeholder="Login">
-    <span asp-validation-for="Login"></span>
+    <span style="color: red;" asp-validation-for="Login"></span>
   </div>
   <div class="mb-3">
     <label for="Senha" class="form-label">Senha</label>

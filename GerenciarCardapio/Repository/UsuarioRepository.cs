@@ -47,6 +47,19 @@ namespace GerenciarCardapio.Repository
             }
         }
 
+        public Usuario BuscarPorLogin(string login)
+        {
+            Usuario user = _db.Usuarios.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
+            if (user == null)
+            {
+                throw new Exception("Usuário não encontrado!");
+            }
+            else
+            {
+                return user;
+            }
+        }
+
         public List<Usuario> BuscarUsuarios()
         {
            return _db.Usuarios.ToList();

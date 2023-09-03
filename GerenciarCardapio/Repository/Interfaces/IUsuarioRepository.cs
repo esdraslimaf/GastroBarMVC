@@ -9,6 +9,7 @@ namespace GerenciarCardapio.Repository.Interfaces
         Usuario Adicionar(Usuario usuario);
         Usuario Atualizar(Usuario usuario);
         void Remover(int id);
+        Usuario BuscarPorLogin(string login);
 
     }
 }

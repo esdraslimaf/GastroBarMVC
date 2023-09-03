@@ -1,10 +1,12 @@
-﻿using GerenciarCardapio.Models;
+﻿using GerenciarCardapio.Filters;
+using GerenciarCardapio.Models;
 using GerenciarCardapio.Repository.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
 
 namespace GerenciarCardapio.Controllers
 {
+    [FiltroPaginaSomenteAdministrador]
     public class ProdutoController : Controller
     {
         private readonly IProdutoRepository _repo;
@@ -17,8 +19,7 @@ namespace GerenciarCardapio.Controllers
         public IActionResult Index()
         {
             return View(_repo.BuscarProdutos());
-        }
-
+        }   
 
         public IActionResult AdicionarProduto()
         {

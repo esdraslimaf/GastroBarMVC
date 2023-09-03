@@ -19,5 +19,12 @@ namespace GerenciarCardapio.Models
         public string Senha { get; set; }
         public DateTime DataCadastro { get; set; }
 
+
+        public bool SenhaValida(string senha)
+        {
+            if (this.Senha == senha) return true;
+            else return false;
+        }
+
     }
 }
