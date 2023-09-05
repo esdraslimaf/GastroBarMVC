@@ -22,10 +22,11 @@ Bem-vindo ao Gerenciador de Bares e Restaurantes, uma aplicação totalmente aut
 
 ### Relatórios Personalizados:
 - Gerar relatórios personalizados ao encerrar a comanda do cliente (Disponível tanto Administradores quanto para Funcionários).
+- Visualizar as comandas fechadas/exibir relatório das mesmas(Somente para administradores)
 
 
 ## Próximas Funcionalidades
-- Função para Administradores: Relatórios detalhados que permitem análises diárias, semanais e mensais.
+- Função para Administradores: Permitir que eles(administradores) filtrem as comandas já fechadas com base em datas específicas. Isso facilitará o acompanhamento das atividades do estabelecimento de forma mais detalhada, podendo também posteriomente puxar o relatório de cada comanda.
 
 ## Instalação e Configuração
 
