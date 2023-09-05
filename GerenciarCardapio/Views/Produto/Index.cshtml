@@ -20,7 +20,7 @@
 </div>
 
  <a class="table-button button-common-style new-button" role="button" asp-controller="Produto" asp-action="AdicionarProduto">Adicionar produto</a>
-<table class="table">
+<table id="ListarProdutosDisponiveisGerenciarDoAdmin" class="table">
   <thead>
     <tr>
       <th scope="col">Categoria</th>
@@ -29,10 +29,13 @@
       <th></th>
     </tr>
   </thead>
-    @if (Model != null && Model.Any())
+
+
+   
+        <tbody>
+             @if (Model != null && Model.Any())
     {
         @foreach(Produto produto in Model){
-        <tbody>
             <tr>
             <td>@produto.Categoria.NomeCategoria</td>
             <td>@produto.NomeProduto</td>
@@ -45,15 +48,14 @@
                  </td>
 
             </tr>
+               }
+    }
         </tbody>
-        }
-    }
-    else
-    {   <tr>
-        <td colspan="4" style="text-align: center;">
-        <span style="color: red;">Nenhum produto foi adicionado até o momento!</span>
-        </td>
-    </tr>
-    }
+     
+     @* NÃO FIZ O ELSE PORQUE O DATATABLE RESOLVERÁ CASO A TABELA SEJA MODEL RECEBIDA SEJA VAZIA
+     SE COLOARMOS UM ELSE, IRÁ HAVER CONFLITO JÁ QUE OS DOIS TENTARÃO RESOLVER, O PROBLEMA SERÁ AINDA
+     PIOR SER USARMOS ALGO COMO colspan OU rowspan! PODEMOS MUDAR A LÓGICA PARA UMA MENSAGEM PERSONALIZADA
+     QUE NÃO SEJA DO DATATABLE, DESDE QUE A DATATABLE NÃO ESTEJA EM USO NA PÁGINA
+  *@
 
 </table>

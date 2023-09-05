@@ -3,50 +3,54 @@
     ViewData["Title"] = "Comandas";
 }
 
-
 <div class="text-center">
     <h1 class="display-4">Comandas fechadas</h1>
 </div>
 
  <a class="table-button button-common-style new-button" role="button" asp-controller="Comanda" asp-action="AbrirComanda">Abrir nova comanda</a>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Cód Comanda</th>
-      <th scope="col">Identificador cliente/mesa</th>
+
+<table id="BuscarComandasFechadas" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+               <th scope="col">Cód Comanda</th>
+                <th scope="col">Identificador cliente/mesa</th>
       <th scope="col">Situação</th> 
       <th scope="col">Valor total</th>
       <th scope="col">Data aberta</th>
       <th scope="col">Data encerrada</th>
       <th></th>
-    </tr>
-  </thead>
-    @if (Model != null && Model.Any())
-    {
-        @foreach(Comanda comanda in Model){
-        <tbody>
-            <tr>
-            <th scoped="row">@comanda.Id</th>
-            <td>@comanda.IdentificacaoCliente</td>
-            <td>@(comanda.Ativa?"Aberta":"Fechada")</td>
-            <td>@comanda.ValorTotal</td>
-            <td>@comanda.DataComandaAbriu</td>
-            <td>@comanda.DataComandaFechada</td>
-            <td>
-                 <div class="btn-group" role="group">
-                                <a role="button" class="table-button button-common-style view-button" asp-action="Relatorio" asp-controller="Admin" asp-route-id="@comanda.Id">Ver detalhes</a>                                          
-                 </td>
             </tr>
-        </tbody>
+        </thead>
+
+
+      
+        <tbody>
+             @if (Model != null && Model.Any())
+        {
+            @foreach (Comanda comanda in Model)
+            {
+                <tr>
+                    <th scoped="row">@comanda.Id</th>
+                    <td>@comanda.IdentificacaoCliente</td>
+                    <td>@(comanda.Ativa?"Aberta":"Fechada")</td>
+                    <td>@comanda.ValorTotal</td>
+                    <td>@comanda.DataComandaAbriu</td>
+                    <td>@comanda.DataComandaFechada</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a role="button" class="table-button button-common-style view-button" asp-action="Relatorio" asp-controller="Admin" asp-route-id="@comanda.Id">Ver detalhes</a>                                          
+                        </div>
+                </tr>
+            }
+
         }
-    }
-    else
-    {   <tr>
-        <td colspan="6" style="text-align: center;">
-        <span style="color: red;">Não existem registro de comandas ainda!</span>
-        </td>
-    </tr>
-    }
 
-</table>
+       @* NÃO FIZ O ELSE PORQUE O DATATABLE RESOLVERÁ CASO A TABELA SEJA MODEL RECEBIDA SEJA VAZIA
+     SE COLOARMOS UM ELSE, IRÁ HAVER CONFLITO JÁ QUE OS DOIS TENTARÃO RESOLVER, O PROBLEMA SERÁ AINDA
+     PIOR SER USARMOS ALGO COMO colspan OU rowspan! PODEMOS MUDAR A LÓGICA PARA UMA MENSAGEM PERSONALIZADA
+     QUE NÃO SEJA DO DATATABLE, DESDE QUE A DATATABLE NÃO ESTEJA EM USO NA PÁGINA
+  *@
 
+        </tbody>
+     
+    </table>

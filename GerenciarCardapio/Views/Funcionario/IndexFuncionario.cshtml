@@ -8,7 +8,7 @@
 </div>
 
  <a class="table-button button-common-style new-button" role="button" asp-controller="Home" asp-action="Index">Voltar</a>
-<table class="table">
+<table id="ListarCardapioIndexFuncionario" class="table">
   <thead>
     <tr>
       <th scope="col">Categoria</th>
@@ -16,24 +16,19 @@
       <th scope="col">Preço unitário</th>          
     </tr>
   </thead>
-    @if (Model != null && Model.Any())
+    
+        <tbody>
+            @if (Model != null && Model.Any())
     {
         @foreach(Produto produto in Model){
-        <tbody>
             <tr>
             <td>@produto.Categoria.NomeCategoria</td>
             <td>@produto.NomeProduto</td>
             <td>@produto.PrecoUnitario</td>                   
             </tr>
+                }
+    }
         </tbody>
-        }
-    }
-    else
-    {   <tr>
-        <td colspan="4" style="text-align: center;">
-        <span style="color: red;">Nenhum produto foi adicionado até o momento!</span>
-        </td>
-    </tr>
-    }
+    
 
 </table>

@@ -1,6 +1,6 @@
 ﻿@model List<Comanda>
 @{
-    ViewData["Title"] = "Comandas";
+    ViewData["Title"] = "Comandas abertas";
 }
 
 @if(TempData["Sucesso"] != null){
@@ -20,7 +20,8 @@
 </div>
 
  <a class="table-button button-common-style new-button" role="button" asp-controller="Comanda" asp-action="AbrirComanda">Abrir nova comanda</a>
-<table class="table">
+
+<table id="BuscarComandasAbertas" class="table">
   <thead>
     <tr>
       <th scope="col">Cód Comanda</th>
@@ -31,17 +32,20 @@
       <th></th>
     </tr>
   </thead>
-    @if (Model != null && Model.Any())
+
+   
+  <tbody>
+   @if (Model != null && Model.Any())
     {
         @foreach(Comanda comanda in Model){
-        <tbody>
+        
             <tr>
             <th scoped="row">@comanda.Id</th>
             <td>@comanda.IdentificacaoCliente</td>
             <td>@(comanda.Ativa?"Aberta":"Fechada")</td>
             <td>@comanda.ValorTotal</td>
             <td>@comanda.DataComandaAbriu</td>
-            <td>
+                       <td>
                  <div class="btn-group" role="group">
                                 <a role="button" class="table-button button-common-style view-button" asp-action="BuscarProdutosDaComanda" asp-controller="ProdutoComanda" asp-route-id="@comanda.Id">Ver Pedidos</a>
                                 <a role="button" class="table-button button-common-style new-button" asp-controller="Categoria" asp-action="Index" asp-route-id="@comanda.Id">Novo Pedido</a>                            
@@ -72,18 +76,21 @@
   </div>
 </div>
 
-                 </td>
-            </tr>
-        </tbody>
+ </td>
+</tr>
+         
         }
     }
-    else
-    {   <tr>
-        <td colspan="5" style="text-align: center;">
-        <span style="color: red;">Nenhuma comanda foi aberta até o momento!</span>
-        </td>
-    </tr>
-    }
+
+  @* NÃO FIZ O ELSE PORQUE O DATATABLE RESOLVERÁ CASO A TABELA SEJA MODEL RECEBIDA SEJA VAZIA
+     SE COLOARMOS UM ELSE, IRÁ HAVER CONFLITO JÁ QUE OS DOIS TENTARÃO RESOLVER, O PROBLEMA SERÁ AINDA
+     PIOR SER USARMOS ALGO COMO colspan OU rowspan! PODEMOS MUDAR A LÓGICA PARA UMA MENSAGEM PERSONALIZADA
+     QUE NÃO SEJA DO DATATABLE, DESDE QUE A DATATABLE NÃO ESTEJA EM USO NA PÁGINA
+  *@
+
+     </tbody>
+    
+    
 
 </table>
 
