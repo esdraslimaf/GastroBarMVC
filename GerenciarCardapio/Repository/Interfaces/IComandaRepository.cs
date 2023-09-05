@@ -8,6 +8,8 @@ namespace GerenciarCardapio.Repository.Interfaces
         ICollection<Comanda> BuscarComandasAbertas();
         Comanda FecharComandaGerandoRelatorio(int id);
         Comanda BuscarComandaPorId(int id);
+        List<Comanda> AdminBuscarComandasFechadas();
+        Comanda AdminBuscarComandaGerarRelatorioPorId(int idComanda);
 
     }
 }

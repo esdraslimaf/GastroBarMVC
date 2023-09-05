@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Usuário\Desktop\Projeto\GastroBarMVC3\GastroBarMVC\GerenciarCardapio
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Usuário/Desktop/Projeto/GastroBarMVC3/GastroBarMVC/GerenciarCardapio/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Usuário/Desktop/Projeto/GastroBarMVC3/GastroBarMVC/GerenciarCardapio/Views/Categoria/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

@@ -14,7 +14,7 @@
         <p><strong>Data de Abertura:</strong> @Model.DataComandaAbriu.ToString("dd/MM/yyyy HH:mm:ss")</p>
         @if (Model.DataComandaFechada.HasValue)
         {
-            <p><strong>Data de Fechamento:</strong> @Model.DataComandaFechada.Value.ToString("dd/MM/yyyy HH:mm:ss")</p>
+            <p><strong>Data de encerramento:</strong> @Model.DataComandaFechada.Value.ToString("dd/MM/yyyy HH:mm:ss")</p>
         }
         <p><strong>Valor Total a ser pago:</strong> R$ <span class="report-value">@Model.ValorTotal.ToString("0.00")</span></p>
     </div>

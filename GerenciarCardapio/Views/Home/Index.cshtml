@@ -1,9 +1,86 @@
-﻿
+﻿@model Usuario
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Página Inicial";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5">
+  <h1 class="display-4">Olá, @Model.Nome!</h1>
+<p class="lead">Sua conta é do tipo
+    <strong>
+        @Html.Raw(Model.Perfil == GerenciarCardapio.Enums.PerfilEnum.Admin ? 
+        "<span class='admin-label'>Administrador</span>" : 
+        "<span class='user-label'>Comum</span>")
+    </strong>
+</p>
+        <!-- Informações adicionais -->
+        <div class="row justify-content-center">
+            @if (!string.IsNullOrEmpty(Model.Email))
+            {
+                <div class="col-md-6">
+                    <p class="lead">E-mail: <a href="mailto:@Model.Email">@Model.Email</a></p>
+                </div>
+            }
+            @if (Model.DataCadastro != null)
+            {
+                <div class="col-md-6">
+                    <p class="lead">Data de Cadastro: @Model.DataCadastro.ToString("dd/MM/yyyy")</p>
+                </div>
+            }
+        </div>
+
+        <hr class="my-4">
+
+        <div class="text-left">
+            <p class="lead">
+                Bem-vindo ao <strong>Gerenciador de Bares e Restaurantes</strong>, sua plataforma completa para administrar e gerenciar estabelecimentos de alimentos e bebidas.
+            </p>
+
+            <!-- Descrição do projeto -->
+            <p class="lead">
+                Com esta ferramenta, você pode gerenciar o cardápio, acompanhar as comandas dos clientes e muito mais. Oferecemos as seguintes funcionalidades:
+            </p>
+
+            <!-- Lista de funcionalidades -->
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>Autenticação e Controle de Acesso:</strong>
+                    <ul class="list-group">
+                        <li class="list-group-item">Tela de login para usuários (Administradores ou Funcionários).</li>
+                        <li class="list-group-item">Diferentes níveis de autenticação com layouts personalizados.</li>
+                        <li class="list-group-item">Filtros de autorização para restringir o acesso a páginas privilegiadas.</li>
+                    </ul>
+                </li>
+                
+                <li class="list-group-item">
+                    <strong>Gerenciamento do Cardápio:</strong>
+                    <ul class="list-group">
+                        <li class="list-group-item">Cardápio público para clientes, categorizado por produtos (Não requer login).</li>
+                        <li class="list-group-item">Adicionar novos produtos ao cardápio (Somente para administradores).</li>
+                        <li class="list-group-item">Editar produtos existentes no cardápio (Somente para administradores).</li>
+                        <li class="list-group-item">Remover produtos do cardápio (Somente para administradores).</li>
+                    </ul>
+                </li>
+
+                <li class="list-group-item">
+                    <strong>Comandas e Pedidos:</strong>
+                    <ul class="list-group">
+                        <li class="list-group-item">Abrir comandas personalizadas para cada cliente (Disponível tanto para Administradores quanto para Funcionários).</li>
+                        <li class="list-group-item">Adicionar pedidos à comanda de cada cliente (Disponível tanto para Administradores quanto para Funcionários).</li>
+                        <li class="list-group-item">Cálculo automático do valor total da comanda (Ao adicionar pedido na comanda).</li>
+                        <li class="list-group-item">Visualizar a lista de pedidos feitos por cada cliente (Disponível tanto para Administradores quanto para Funcionários).</li>
+                    </ul>
+                </li>
+
+                <li class="list-group-item">
+                    <strong>Relatórios Personalizados:</strong>
+                    <ul class="list-group">
+                        <li class="list-group-item">Gerar relatórios personalizados ao encerrar a comanda do cliente (Disponível tanto para Administradores quanto para Funcionários).</li>
+                        <li class="list-group-item">Visualizar relatórios de comandas encerradas (Apenas para administradores).</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+   
+    </div>
 </div>

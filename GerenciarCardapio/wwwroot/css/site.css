@@ -121,3 +121,13 @@ body {
 .bold-category {
     font-weight: bold;
 }
+
+.admin-label {
+    font-weight: bold; /* Deixa o texto em negrito */
+    color: #FF5733; /* Define uma cor diferente, como laranja, para destacar */
+}
+
+.user-label {
+    font-weight: bold; /* Define o estilo itálico para o texto */
+    color: #337AFF; /* Define uma cor diferente, como azul, para destacar */
+}

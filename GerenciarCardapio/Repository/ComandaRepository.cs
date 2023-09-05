@@ -36,7 +36,7 @@ namespace GerenciarCardapio.Repository
         }
 
 
-        public Comanda FecharComandaGerandoRelatorio(int idComanda) // Retornando a comanda 
+        public Comanda FecharComandaGerandoRelatorio(int idComanda) // Retornando a comanda com produtos
         {
             decimal valorTotal = 0.0m;
             var comanda = _db.Comandas.Include(c => c.ComandaProdutos).ThenInclude(cp => cp.Produto).FirstOrDefault(c => c.Id == idComanda);
@@ -59,5 +59,19 @@ namespace GerenciarCardapio.Repository
             return comanda;    
         }
 
+
+        //Método abaixo vai listar as comandas fechadas juntamente com os pedidos
+        public List<Comanda> AdminBuscarComandasFechadas()
+        {
+            return _db.Comandas.Where(comanda=>comanda.Ativa==false).OrderByDescending(c=>c.Id).ToList();
+        }
+
+
+        // Método de acordo com id da comanda fechada gerar relatório
+        public Comanda AdminBuscarComandaGerarRelatorioPorId(int idComanda)
+        {
+            var comanda = _db.Comandas.Include(c => c.ComandaProdutos).ThenInclude(produto => produto.Produto).FirstOrDefault(c=>c.Id==idComanda);
+            return comanda;
+        }
     }
 }

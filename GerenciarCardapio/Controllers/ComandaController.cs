@@ -45,7 +45,8 @@ namespace GerenciarCardapio.Controllers
             }        
         }
 
-        [HttpPost]
+        [HttpPost] // Não busca dados de comandas anteriores via url, apenas gera na hora
+                  //Esse método na AdminController pode buscar registros anteriores, pois vai ser HttpGet
         public IActionResult Relatorio(int id)
         {
             return View(_repo.FecharComandaGerandoRelatorio(id));
