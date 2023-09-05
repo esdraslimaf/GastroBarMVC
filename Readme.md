@@ -13,20 +13,19 @@ Bem-vindo ao Gerenciador de Bares e Restaurantes, uma aplicação totalmente aut
 - Adicionar novos produtos ao cardápio (Somente para administradores).
 - Editar produtos existentes no cardápio (Somente para administradores).
 - Remover produtos do cardápio (Somente para administradores).
+- Pesquisa: Filtre dados por datas, nomes, preços ou qualquer outro critério desejado.
 
 ### Comandas e Pedidos:
 - Abrir comandas personalizadas para cada cliente (Disponível tanto Administradores quanto para Funcionários).
 - Adicionar pedidos à comanda de cada cliente (Disponível tanto Administradores quanto para Funcionários).
 - Cálculo automático do valor total da comanda (Ao adicionar pedido na comanda).
 - Visualizar a lista de pedidos feitos por cada cliente (Disponível tanto Administradores quanto para Funcionários).
+- Pesquisa: Filtre dados por datas, nomes, preços ou qualquer outro critério desejado.
 
 ### Relatórios Personalizados:
 - Gerar relatórios personalizados ao encerrar a comanda do cliente (Disponível tanto Administradores quanto para Funcionários).
 - Visualizar as comandas fechadas/exibir relatório das mesmas(Somente para administradores)
-
-
-## Próximas Funcionalidades
-- Função para Administradores: Permitir que eles(administradores) filtrem as comandas já fechadas com base em datas específicas. Isso facilitará o acompanhamento das atividades do estabelecimento de forma mais detalhada, podendo também posteriomente puxar o relatório de cada comanda.
+- Pesquisa: Filtre dados por datas, nomes, preços ou qualquer outro critério desejado.
 
 ## Instalação e Configuração
 
