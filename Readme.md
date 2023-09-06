@@ -2,6 +2,16 @@
 
 Bem-vindo ao Gerenciador de Bares e Restaurantes, uma aplicação totalmente autoral e em desenvolvimento para administrar e gerenciar estabelecimentos de alimentos e bebidas. Com essa ferramenta, você poderá gerenciar o cardápio, acompanhar as comandas dos clientes e muito mais.
 
+## Tecnologias Utilizadas
+
+### Back-End
+- **Linguagem:** C#
+- **Framework ORM:** Entity Framework
+- **Banco de Dados:** Microsoft SQL Server
+
+### Front-End
+- **Framework:** ASP.NET Core MVC
+
 ## Instalação e Configuração
 
 1. Clone o repositório:
@@ -34,6 +44,7 @@ git clone https://github.com/esdraslimaf/GastroBarMVC.git
 - Gerar relatórios personalizados ao encerrar a comanda do cliente (Disponível tanto Administradores quanto para Funcionários).
 - Visualizar as comandas fechadas/exibir relatório das mesmas(Somente para administradores)
 - Pesquisa: Filtre dados por datas, nomes, preços ou qualquer outro critério desejado.
+
 
 ## Demonstração:
 ### 1. Tela inicial(Esta seção mostra a tela inicial da aplicação, que exibe o cardápio público(Não requer login, pois é para clientes). Os itens do cardápio podem ser adicionados, editados ou removidos ao acessar a conta de administrador):
@@ -166,3 +177,6 @@ O sistema implementa uma restrição de acesso para diferentes tipos de usuário
 - Já os clientes são redirecionados para a página que exibe o cardápio público, pois essa deve ser a única página à qual os clientes têm acesso.
 ![image](https://github.com/esdraslimaf/GastroBarMVC/assets/101669187/d65b7264-1da3-40eb-9b23-a70ab63f4a50)
 
+# Autor
+**Esdras Lima**
+- **LinkedIn:** [Esdras Lima - LinkedIn](https://www.linkedin.com/in/esdrasdev/)
