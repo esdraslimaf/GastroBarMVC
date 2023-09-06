@@ -41,7 +41,7 @@ namespace GerenciarCardapio.Controllers
                     return View(usuario);
                 }
             }
-            catch(Exception erro)
+            catch(InvalidOperationException erro)
             {
                 TempData["Erro"] = $"Ocorreu um erro ao adicionar o usuário! Detalhes: {erro.Message}";
                 return RedirectToAction("Index");

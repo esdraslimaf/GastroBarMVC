@@ -16,8 +16,16 @@ namespace GerenciarCardapio.Repository
         public Usuario Adicionar(Usuario usuario)
         {
             usuario.DataCadastro = DateTime.Now;
-            _db.Add(usuario);
-            _db.SaveChanges();
+
+            if (_db.Usuarios.Any(u => u.Login == usuario.Login))
+            {
+                throw new InvalidOperationException("Já existe um usuário com esse login.");
+            }
+            else 
+            {
+                _db.Add(usuario);
+                _db.SaveChanges();
+            }           
             return usuario;
         }
 
